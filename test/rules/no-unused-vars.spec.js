@@ -1,12 +1,12 @@
 import eslint from 'eslint';
 import plugin from '../../src';
 
-const rule = plugin.rules['no-unused-vars-rest'];
+const rule = plugin.rules['no-unused-vars'];
 
 const ruleTester = new eslint.RuleTester();
 const parserOptions = { ecmaVersion: 6, ecmaFeatures: { experimentalObjectRestSpread: true }};
 
-ruleTester.run('no-unused-vars-rest', rule, {
+ruleTester.run('no-unused-vars', rule, {
 	valid: [
 		{ code: 'var {x, ...rest} = { x: 1, y: 2}; foo(x, rest);', parserOptions },
 		{ code: 'var {x, ...rest} = { x: 1, y: 2}; foo(rest);', options: [{ ignoreDestructuredVarsWithRest: true }], parserOptions },
