@@ -16,13 +16,14 @@ export default {
 			proxyContext = new Proxy(context, {
 				get(target, property, receiver) {
 					if (property === 'report') {
-						return function report(descriptor) {
-							const { node } = descriptor;
+						return function report(...args) {
+							const node = args.length === 1 ? args[0].node : args[0];
+
 							if (isDestructuredVarWithRestProperty(node)) {
 								return;
 							}
 
-							context.report(descriptor);
+							target.report(...args);
 						};
 					}
 
