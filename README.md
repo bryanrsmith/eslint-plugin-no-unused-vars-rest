@@ -28,7 +28,7 @@ Add `no-unused-vars-rest` to the plugins section of your `.eslintrc` configurati
   ],
   "rules": {
     "no-unused-vars": 0,
-    "no-unused-vars-rest/no-unused-vars-rest": [2, {"ignoreDestructuredVarsWithRest": true}]
+    "no-unused-vars-rest/no-unused-vars": [2, {"ignoreDestructuredVarsWithRest": true}]
   }
 }
 ```
@@ -37,12 +37,12 @@ Alternatively you may use the plugin's recommended configuration, which applies 
 
 ```json
 {
-  "extends": ["no-unused-vars-rest:default"]
+  "extends": ["plugin:no-unused-vars-rest/recommended"]
 }
 ```
 
 
-When **not** using this rule the following pattern is considered a problem by `no-unused-vars`:
+When **not** using this rule the following pattern is considered a problem by the core rule `no-unused-vars`:
 
 ```js
 const { extra, ...rest } = blah; // Error 'extra' is defined but never used.
