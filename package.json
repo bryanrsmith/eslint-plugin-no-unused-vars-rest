@@ -49,7 +49,7 @@
     "release-script": "^1.0.2"
   },
   "engines": {
-    "node": ">=4.0.0"
+    "node": ">=6.0.0"
   },
   "license": "MIT",
   "babel": {
