@@ -13,25 +13,21 @@ export default {
 
 		let proxyContext = context;
 		if (typeof options === 'object' && options.ignoreDestructuredVarsWithRest) {
-			proxyContext = new Proxy(context, {
-				get(target, property, receiver) {
-					if (property === 'report') {
-						return function report(...args) {
-							const node = args.length === 1 ? args[0].node : args[0];
+			// ESLint freezes context, so can't monkey patch directly
+			proxyContext = Object.create(context);
+			proxyContext.report = function report(...args) {
+				const node = args.length === 1 ? args[0].node : args[0];
 
-							if (isDestructuredVarWithRestProperty(node)) {
-								return;
-							}
+				if (isDestructuredVarWithRestProperty(node)) {
+					// ignore reports for nodes passing the test
+					return;
+				}
 
-							target.report(...args);
-						};
-					}
-
-					return Reflect.get(target, property, receiver);
-				},
-			});
+				context.report(...args);
+			};
 		}
 
+		// create the core rule with the patched context
 		return noUnusedVars.create(proxyContext);
 	},
 };

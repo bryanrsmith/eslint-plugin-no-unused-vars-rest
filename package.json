@@ -48,9 +48,6 @@
     "nyc": "^8.1.0",
     "release-script": "^1.0.2"
   },
-  "engines": {
-    "node": ">=6.0.0"
-  },
   "license": "MIT",
   "babel": {
     "presets": [
