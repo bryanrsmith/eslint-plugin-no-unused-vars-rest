@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-no-unused-vars-rest",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "An enhanced version of the ESLint core rule no-unused-vars with allowances for experimental object rest properties.",
   "keywords": [
     "eslint",
