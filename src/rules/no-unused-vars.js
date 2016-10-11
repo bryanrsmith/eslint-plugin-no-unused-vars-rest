@@ -34,7 +34,8 @@ export default {
 
 function isDestructuredVarWithRestProperty(node) {
 	const { parent } = node;
-	return parent.type === 'Property' &&
+	return parent &&
+		parent.type === 'Property' &&
 		parent.parent.type === 'ObjectPattern' &&
 		parent.parent.properties.some(p => p.type === 'ExperimentalRestProperty');
 }
