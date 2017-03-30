@@ -4,6 +4,8 @@
 
 # eslint-plugin-no-unused-vars-rest
 
+## DEPRECATED: As of ESLint 3.15.0 this functionality is [supported by the core no-unused-vars rule](http://eslint.org/docs/rules/no-unused-vars#ignorerestsiblings).
+
 An enhanced version of the [ESLint core rule no-unused-vars](http://eslint.org/docs/rules/no-unused-vars) with allowances for experimental object rest properties.
 
 This plugin provides a single rule which functions the same as the core rule `no-unused-vars`, except it adds the `ignoreDestructuredVarsWithRest` option. Enabling this option will allow unused variables appearing in destructuring assignments that also contain experimental rest properties. This is useful for shallow-cloning an object while omitting certain properties.
